@@ -3,34 +3,29 @@
 module.exports = app => {
   const { STRING, INTEGER, DATE } = app.Sequelize;
 
-  const User = app.model.define('users', {
+  const Org = app.model.define('orgs', {
     id: {
       type: INTEGER(11),
       primaryKey: true,
       autoIncrement: true,
       field: 'id',
     },
-    username: STRING(64),
-    password: STRING(64),
     name: STRING(64),
-    cardId: {
+    code: STRING(64),
+    parentId: {
+      type: INTEGER(11),
+      field: 'parent_id',
+    },
+    parentName: {
       type: STRING(64),
-      field: 'card_id',
+      field: 'parent_name',
     },
-    gender: INTEGER(2),
-    birthday: DATE,
-    mobile: STRING(20),
-    avatar: STRING(255),
-    profile: STRING(1024),
-    lastLoginTime: {
-      type: DATE,
-      field: 'last_login_time',
+    parentCode: {
+      type: STRING(64),
+      field: 'parent_code',
     },
-    lastLoginIp: {
-      type: STRING(63),
-      field: 'last_login_ip',
-    },
-    status: INTEGER(2),
+    sort: INTEGER(11),
+    description: STRING(1024),
     createTime: {
       type: DATE,
       field: 'create_time',
@@ -50,5 +45,5 @@ module.exports = app => {
   }
   );
 
-  return User;
+  return Org;
 };
