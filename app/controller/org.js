@@ -2,7 +2,7 @@
 
 const { Controller } = require('egg');
 
-class UserController extends Controller {
+class OrgController extends Controller {
 
 
   async page() {
@@ -22,4 +22,4 @@ class UserController extends Controller {
   }
 }
 
-module.exports = UserController;
+module.exports = OrgController;

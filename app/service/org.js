@@ -2,7 +2,7 @@
 
 const Service = require('egg').Service;
 
-class UserService extends Service {
+class OrgService extends Service {
   async list({ pageNum = 1, pageSize: limit = 10 }) {
     const offset = pageNum * limit - limit;
     return this.ctx.model.Org.findAndCountAll({
@@ -65,4 +65,4 @@ class UserService extends Service {
   }
 }
 
-module.exports = UserService;
+module.exports = OrgService;
