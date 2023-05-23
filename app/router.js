@@ -6,5 +6,5 @@
 module.exports = app => {
   const { router, controller } = app;
   router.get('/', controller.home.index);
-  router.post('/user/create', controller.user.create);
+  require('./router/user')(app);
 };
